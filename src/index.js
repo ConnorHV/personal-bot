@@ -13,5 +13,4 @@ client.on('ready', (c) => {
     console.log(`${c.user.tag} is online!`);
 });
 
-client.login("MTIwNTIzMDY2NTE4OTE2MzA3OQ.GxNVmY.5PQDBNSwgBAML1Cb3W5DTSQWhBDu-6FRdClICM"
-);
+client.login();
