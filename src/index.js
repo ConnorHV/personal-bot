@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { Client, IntentsBitField } = require('discord.js');
 
 const client = new Client({
@@ -13,4 +14,4 @@ client.on('ready', (c) => {
     console.log(`${c.user.tag} is online!`);
 });
 
-client.login();
+client.login(process.env.TOKEN);
