@@ -1,5 +1,6 @@
 require('dotenv').config();
 const { Client, IntentsBitField, ActivityType } = require('discord.js');
+const eventHandler = require('./handlers/eventHandler');
 
 const client = new Client({
     intents: [
@@ -10,25 +11,7 @@ const client = new Client({
     ],
 });
 
-let status = [
-    {
-        name: 'ConnrHV learn javascript',
-        type: ActivityType.Watching,
-    },
-    {
-        name: 'ConnorHV Code me',
-        type: ActivityType.Watching
-    },
-];
-
-client.on('ready', (c) => {
-    console.log(`${c.user.tag} is online!`);
-
-    setInterval(() => {
-        let random = Math.floor(Math.random() * status.length);
-        client.user.setActivity(status[random]);   
-    }, 10000);
-});
+eventHandler(client);
 
 client.on('interactionCreate', (interaction) => {
     if (!interaction.isChatInputCommand()) return;
